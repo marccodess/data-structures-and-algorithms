@@ -140,17 +140,33 @@ class LinkedList:
         nodes.append("None")
         return " -> ".join(nodes)
 
-    def add_first(self, node):
+    def addFirst(self, node):
         node.next = self.head  # Set current head as the next reference of new node
         self.head = node  # New head of the list is the inserted node
 
-    def add_last(self, node):
+    def addLast(self, node):
         if not self.head:  # Traverse the list until you reach the end
             self.head = node
             return
-        for current_node in self:  # Set current node as last node in list
+        for currentNode in self:  # Set current node as last node in list
             pass
-        current_node.next = node  # Add new node as the next value of current node
+        currentNode.next = node  # Add new node as the next value of current node
+
+    def removeNode(self, targetNode):
+        if not self.head:
+            raise Exception("linked list is empty.")
+        if self.head.data == targetNode:
+            self.head = self.head.next
+            return
+
+        previousNode = self.head
+        for node in self:
+            if node.data == targetNode:
+                previousNode.next = node.next
+                return
+            previousNode = node
+
+        raise Exception(f"Node with data {targetNode} not found.")
 
 
 linkedList = LinkedList()
@@ -168,16 +184,22 @@ linkedList = LinkedList(["a", "b", "c", "d", "e"])
 linkedList  # Ouput: a -> b -> c -> d -> e -> None
 
 linkedList = LinkedList()
-linkedList.add_first(Node("a"))
+linkedList.addFirst(Node("a"))
 linkedList  # Output: a -> None
-linkedList.add_first(Node("b"))
+linkedList.addFirst(Node("b"))
 linkedList  # Output: b -> a -> None
 
 linkedList = LinkedList(["a", "b", "c", "d"])
-linkedList.add_last(Node("e"))
+linkedList.addLast(Node("e"))
 linkedList  # Output: a -> b -> c -> d -> e -> None
-linkedList.add_last(Node("f"))
+linkedList.addLast(Node("f"))
 linkedList  # Output: a -> b -> c -> d -> e -> f -> None
 
-"""
--
+linkedList = LinkedList()
+linkedList.addFirst(Node("a"))
+linkedList.addFirst(Node("b"))
+linkedList.addFirst(Node("c"))
+linkedList  # Output: c -> b -> a -> None
+linkedList.removeNode("b")
+linkedList  # Output: c -> a -> None
+linkedList.removeNode("z")  # Output: "Node with data z not found."
