@@ -83,3 +83,7 @@ target/
 
 # Mypy cache
 .mypy_cache/
+
+graphs.py
+heaps.py
+trees.py
