@@ -60,44 +60,6 @@ linkedList.appendleft("d")
 linkedList.popleft()
 
 """
-I M P L E M E N T   A   Q U E U E
-
-- Using the FIFO approach, three names will be added into a queue.
-- Then an element is removed using this approach.
-- Think of a queue outside a retail store, the first one to arrive is Marc. When able to enter, Marc leaves the queue first.
-"""
-
-from collections import deque
-
-q = deque()
-q.append("Marc")
-q.append("Steve")
-q.append("Sarah")
-# Output: deque(['Marc', 'Steve', 'Sarah'])
-
-q.popleft()
-# Output: deque(['Steve', 'Sarah'])
-
-"""
-I M P L E M E N T   A   S T A C K
-
-- Using the LIFO approach, therefore the last element inserted into the stack will be removed first.
-- In the example below, imagine you are navigating through a website. You find yourself on 'Page2'.
-- Then you select the back button which returns you back to 'Page1', this is achieved using the LIFO approach.
-"""
-
-from collections import deque
-
-q = deque()
-q.appendleft("Homepage")
-q.appendleft("Page1")
-q.appendleft("Page2")
-# Output: deque(['Page2', 'Page1', 'Homepage'])
-
-q.popleft()
-# Output: deque(['Page1', 'Homepage'])
-
-"""
 I M P L E M E N T   A   L I N K E D   L I S T
 
 - This is great knowledge for coding interviews and understanding data structures.
