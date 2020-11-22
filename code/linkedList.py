@@ -116,7 +116,7 @@ class LinkedList:
 
     def removeNode(self, targetNode):
         if not self.head:
-            raise Exception("linked list is empty.")
+            raise Exception("Linked list is empty.")
         if self.head.data == targetNode:
             self.head = self.head.next
             return
