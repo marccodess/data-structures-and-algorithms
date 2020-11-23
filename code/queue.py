@@ -9,6 +9,7 @@ Q U E U E S   I N   P Y T H O N
 
 
 from collections import deque
+
 q = deque()
 q.append("Marc")
 q.append("Steve")

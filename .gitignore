@@ -84,8 +84,7 @@ target/
 # Mypy cache
 .mypy_cache/
 
-graph.py
-heap.py
-tree.py
 binarySearchTree.py
 binaryTree.py
+graph.py
+heap.py
