@@ -6,7 +6,9 @@ G R A P H S   I N   P Y T H O N
 - Directed graph has a series of nodes with direction, for example, routing of flights between cities.
 - Unlike in a tree structure, graphs can have multiple paths between node pairs.
 - Weighted graphs have weights attached to it's edges, for example, miles between airports.
-- 
+"""
+"""
+I M P L E M E N T   A   G R A P H
 """
 
 
@@ -37,52 +39,30 @@ class Graph:
         return paths
 
     def shortestPath(self, start, end, path=[]):
-        path = path + [start]  # State where you are starting from
+        path = path + [start]
         if start == end:
             return [path]
         if start not in self.graphDict:  # Node does not exist in the graph
             return []
-        sPath = None
+        shortest = None
         for node in self.graphDict[start]:
             if node not in path:
-                sp = self.shortestPath(node, end, path)
-                if sp:  # Ensure 'None' is not provided
-                    if sPath is None or len(sp) < len(sPath):
-                        sPath = sp
-
-        return sPath
+                newpath = self.shortestPath(node, end, path)
+                if newpath:
+                    if not shortest or len(newpath) < len(shortest):
+                        shortest = newpath
+        return shortest
 
 
 routes = [
-    ("JFK", "LHR"),
     ("JFK", "LAX"),
     ("LHR", "DXB"),
-    ("DXB", "LAX"),
-    ("DXB", "HND"),
-    ("LAX", "LGA"),
+    ("LAX", "HND"),
+    ("DXB", "JFK"),
+    ("DXB", "DXB"),
+    ("HND", "LHR"),
+    ("HND", "LAX"),
 ]
 graph = Graph(routes)
-graph.shortestPath("JFK", "HND")  # Output: [['JFK', 'LHR', 'DXB', 'HND']]
-graph.shortestPath("JFK", "LGA")  # Output: [['JFK', 'LHR', 'DXB', 'HND']]
-
-graph.getPaths("JFK", "LAX")
-
-
-edges = routes
-graphDict = {}
-for start, end in edges:  # Outbound as key, inbound as value
-    if start in graphDict:
-        graphDict[start].append(end)
-    else:
-        graphDict[start] = [end]
-
-sPath = None
-path = [start]
-for node in graphDict[start]:
-    print(node)
-    if node not in path:
-        sp = graph.shortestPath(node, end, path)
-        if sp:
-            print(len(sp))
-            if sPath is None or len(sp) < len(sPath):
-                sPath = sp
+graph.shortestPath("JFK", "HND")  # Output: [['JFK', 'LAX', 'HND']]
+graph.shortestPath("JFK", "LAX")  # Output: [['JFK', 'LAX']]

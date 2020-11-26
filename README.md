@@ -9,3 +9,4 @@ The data structures covered in this repository are:
 1. Stack
 2. Queue
 3. Linked List
+4. Graph
