@@ -33,7 +33,7 @@ class Graph:
             start
         ]:  # Loop through graph where o is starting node
             if node not in path:
-                newPaths = self.getPaths(node, end, path)  #
+                newPaths = self.getPaths(node, end, path)
                 for p in newPaths:
                     paths.append(p)
         return paths
