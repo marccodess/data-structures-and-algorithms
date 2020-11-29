@@ -33,23 +33,23 @@ class Node:
         else:
             self.data = data
 
-    def PrintTree(self):
+    def printTree(self):
         if self.left:
-            self.left.PrintTree()  # Print the left side of tree
+            self.left.printTree()  # Print the left side of tree
         print(self.data),  # Print root
         if self.right:
-            self.right.PrintTree()  # Print the right side of tree
+            self.right.printTree()  # Print the right side of tree
 
 
 root = Node(10)  # Set the root of the tree
 root.insert(8)
 root.insert(16)
-root.PrintTree()  # Output: 8 10 16
+root.printTree()  # Output: 8 10 16
 root.insert(4)
 root.insert(26)
-root.PrintTree()  # Output: 4 8 10 16 26
+root.printTree()  # Output: 4 8 10 16 26
 root.insert(2)
 root.insert(22)
 root.insert(2)
 root.insert(15)
-root.PrintTree()  # Output: 2 4 8 10 15 16 22 26
+root.printTree()  # Output: 2 4 8 10 15 16 22 26

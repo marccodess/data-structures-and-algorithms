@@ -84,5 +84,4 @@ target/
 # Mypy cache
 .mypy_cache/
 
-binarySearchTree.py
 heap.py
