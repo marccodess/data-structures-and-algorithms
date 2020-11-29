@@ -31,7 +31,7 @@ class Graph:
         paths = []
         for node in self.graphDict[
             start
-        ]:  # Loop through graph where o is starting node
+        ]:  # Loop through graph where start is starting node
             if node not in path:
                 newPaths = self.getPaths(node, end, path)
                 for p in newPaths:
