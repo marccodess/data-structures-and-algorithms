@@ -12,3 +12,6 @@ The data structures covered in this repository are:
 4. Graph
 5. Binary Tree
 6. Binary Search Tree
+
+## Authors:
+Marc (marccodess)
